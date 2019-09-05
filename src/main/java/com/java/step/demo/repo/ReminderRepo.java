@@ -1,4 +1,9 @@
 package com.java.step.demo.repo;
 
-public interface ReminderRepo {
+import com.java.step.demo.entity.Reminder;
+import org.springframework.data.repository.CrudRepository;
+
+//TODO Тип айди для репозитория требует уточнения!!!!
+public interface ReminderRepo extends CrudRepository<Reminder, Long> {
+
 }

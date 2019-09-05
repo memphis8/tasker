@@ -1,4 +1,4 @@
-package com.java.step.demo.domain;
+package com.java.step.demo.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
