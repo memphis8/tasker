@@ -13,7 +13,7 @@ import java.util.ArrayList;
 @RequestMapping("reminder")
 public class ReminderController {
 
-    @GetMapping("{userName}")
+    @GetMapping()
     public String getUserReminders(@PathVariable String userName, Model model){
         model.addAttribute("reminders",new ArrayList<Reminder>());
         return "reminder";

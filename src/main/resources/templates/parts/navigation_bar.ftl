@@ -13,6 +13,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="/reminder/dima/add_reminder">Add new remind</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Log In</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/registration">Sign in</a>
+            </li>
             <!--<li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Dropdown
