@@ -5,4 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 
 //TODO Тип айди для репозитория требует уточнения!!!!
 public interface UserRepo extends CrudRepository<User, Long> {
+    User findByLogin(String login);
 }

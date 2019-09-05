@@ -40,9 +40,13 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-context:5.1.9.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.1.9.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.1.9.RELEASE" />
-          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.26" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aspects:5.1.9.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-freemarker:2.1.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.thymeleaf:thymeleaf:3.0.11.RELEASE" />
+          <element id="library" level="project" name="Maven: ognl:ognl:3.1.12" />
+          <element id="library" level="project" name="Maven: org.attoparser:attoparser:2.0.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.unbescape:unbescape:1.1.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.26" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-web:2.1.7.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter:2.1.7.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-logging:2.1.7.RELEASE" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.2.3" />
@@ -51,9 +55,6 @@
           <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.11.2" />
           <element id="library" level="project" name="Maven: org.slf4j:jul-to-slf4j:1.7.26" />
           <element id="library" level="project" name="Maven: org.yaml:snakeyaml:1.23" />
-          <element id="library" level="project" name="Maven: org.freemarker:freemarker:2.3.28" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-context-support:5.1.9.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-web:2.1.7.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-json:2.1.7.RELEASE" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.9" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.0" />
