@@ -3,6 +3,8 @@ package com.java.step.demo.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -17,8 +19,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NonNull
     private String login;
+    @NonNull
     private String password;
+    @Value("standart@email.com")
     private String email;
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
