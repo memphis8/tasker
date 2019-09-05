@@ -4,12 +4,12 @@
     <!--Перебор всех напоминаний-->
     <#list reminders as reminder>
         <div>
-            <b>${reminder}</b>
-            <span>${reminder}</span>
-            <span>${reminder}</span>
-            <strong>${reminder}</strong>
+            <b>${reminder.name}</b>
+            <span>${reminder.tag}</span>
+            <span>${reminder.text}</span>
+            <!--<strong>${reminder}</strong>-->
         </div>
     <#else>
-        No reminders
+        Нету запланированых напоминаний
     </#list>
 </@p.page>
