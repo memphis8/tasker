@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/" lang="ru">
+    <meta charset="UTF-8">
+    <title>Change Reminder</title>
+</head>
+<body>
+<!--/*@thymesVar id="reminder" type="com.java.step.demo.entity.Reminder"*/-->
+<form method="put" action="add_new_reminder" th:object="${reminder}">
+    <div><label>Name:    <input type="text" name="name" th:value="*{getName()}"></label></div>
+    <div><label>Tag: <input type="text" name="tag" th:value="*{getTag()}"></label></div>
+    <div><label>Text: <input type="text" name="text" th:value="*{getText()}"></label></div>
+    <div><div><input type="submit" class="btn btn-outline-primary" value="Добавить заметку"/></div></div>
+</form>
+</body>
+</html>

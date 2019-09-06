@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("reminder")
 public class ReminderController {
 
+    @GetMapping("reminders")
+    public String getUserReminders(){
+        return"reminders";
+    }
+
 
 
 }
