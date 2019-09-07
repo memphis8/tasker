@@ -7,7 +7,7 @@
 </head>
 <body>
 <form method="post" action="/reminder/add_new_reminder" th:object="${reminder}">
-    <div><label for="name">Name:
+    <div><label>Name:
         <input type="text" th:field="*{name}" name="name" placeholder="Название заметки">
         <span class="validationError" style="color: red"
               th:if="${#fields.hasErrors('name')}"
