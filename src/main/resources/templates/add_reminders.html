@@ -6,10 +6,20 @@
     <title>Add reminders</title>
 </head>
 <body>
-<form method="post" action="add_new_reminder">
-    <div><label>Name:    <input type="text" name="name" placeholder="Название заметки"></label></div>
-    <div><label>Tag: <input type="text" name="tag" placeholder="Тег важности"></label></div>
-    <div><label>Text: <input type="text" name="text" placeholder="Текст самой заметки"></label></div>
+<form method="post" action="/reminder/add_new_reminder" th:object="${reminder}">
+    <div><label for="name">Name:
+        <input type="text" th:field="*{name}" name="name" placeholder="Название заметки">
+        <span class="validationError" style="color: red"
+              th:if="${#fields.hasErrors('name')}"
+              th:errors="*{name}">Name Error</span>
+    </label></div>
+    <div><label>Tag: <input type="text"  name="tag" placeholder="Тег важности"></label></div>
+    <div><label>Text:
+        <input type="text" th:field="*{body}"  name="text"  placeholder="Текст самой заметки">
+        <span class="validationError" style="color: red"
+              th:if="${#fields.hasErrors('body')}"
+              th:errors="*{body}">Text Error</span>
+    </label></div>
     <div><div><input type="submit" class="btn btn-outline-primary" value="Добавить заметку"/></div></div>
 </form>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
