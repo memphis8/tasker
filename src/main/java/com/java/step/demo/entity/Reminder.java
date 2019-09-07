@@ -4,6 +4,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Data
@@ -15,10 +17,12 @@ public class Reminder {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotBlank
     private String name;
     @Enumerated(EnumType.STRING)
     private Tag tag;
-    private String text;
+    @NotBlank
+    private String body;
     private String date;
 
     @ManyToOne(fetch = FetchType.EAGER)
