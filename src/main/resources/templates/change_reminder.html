@@ -21,6 +21,7 @@
               th:if="${#fields.hasErrors('body')}"
               th:errors="*{body}">Text Error</span>
     </label></div>
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
     <div><div><input type="submit" class="btn btn-outline-primary" value="Добавить заметку"/></div></div>
 </form>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

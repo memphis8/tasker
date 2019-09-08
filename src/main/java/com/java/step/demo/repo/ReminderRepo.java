@@ -7,5 +7,5 @@ import java.util.List;
 
 //TODO Тип айди для репозитория требует уточнения!!!!
 public interface ReminderRepo extends CrudRepository<Reminder, Long> {
-    List<Reminder> findAllByUser_Login(String login);
+    List<Reminder> findAllByUser_Username(String username);
 }

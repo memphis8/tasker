@@ -24,7 +24,7 @@ public class AddReminderController {
     }
 
     @PostMapping("add_new_reminder")
-    public String addNewReminder(@Valid Reminder reminder, Errors errors){
+    public String addNewReminder(@ModelAttribute @Valid Reminder reminder, Errors errors){
         if(errors.hasErrors()){
             return "add_reminders";
         }

@@ -8,13 +8,14 @@
 <body>
 <div class="container">
     <div>Страница регистрации</div>
+    <div th:if="${message != null}" th:text="${message}" style="color: red"></div>
     <form method="post" action="registration" th:object="${user}">
         <div>
             <label>Login:
-                <input type="text" th:field="*{login}" name="login" placeholder="login">
+                <input type="text" th:field="*{username}" name="username" placeholder="login">
                 <span class="validationError" style="color: red"
-                      th:if="${#fields.hasErrors('login')}"
-                      th:errors="*{login}">Login Error</span>
+                      th:if="${#fields.hasErrors('username')}"
+                      th:errors="*{username}">Login Error</span>
             </label>
             <br/>
         </div>
@@ -30,6 +31,7 @@
                   th:if="${#fields.hasErrors('email')}"
                   th:errors="*{email}">Email error</span>
         </label></div>
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
         <div><div><input type="submit" class="btn btn-outline-primary" value="Registration"/></div></div>
     </form>
 </div>

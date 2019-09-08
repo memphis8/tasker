@@ -24,11 +24,8 @@ public class ReminderController {
 
     @GetMapping("reminders")
     public String getUserReminders(Model model){
-        List<Reminder> userReminder = reminderRepo.findAllByUser_Login(userService.getUser().getLogin());
+        List<Reminder> userReminder = reminderRepo.findAllByUser_Username(userService.getUser().getUsername());
         model.addAttribute("reminders",userReminder);
         return"reminders";
     }
-
-
-
 }
