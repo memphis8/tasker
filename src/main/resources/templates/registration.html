@@ -10,21 +10,21 @@
     <div>Страница регистрации</div>
     <form method="post" action="registration" th:object="${user}">
         <div>
-            <label for="login">Login:
+            <label>Login:
                 <input type="text" th:field="*{login}" name="login" placeholder="login">
                 <span class="validationError" style="color: red"
-                  th:if="${#fields.hasErrors('login')}"
-                  th:errors="*{login}">Login Error</span>
+                      th:if="${#fields.hasErrors('login')}"
+                      th:errors="*{login}">Login Error</span>
             </label>
             <br/>
         </div>
-        <div><label for="password">Password:
+        <div><label >Password:
             <input type="text" th:field="*{password}" name="password" placeholder="password">
             <span class="validationError" style="color: red"
                   th:if="${#fields.hasErrors('password')}"
                   th:errors="*{password}">Password Error</span>
         </label></div>
-        <div><label for="email">Email:
+        <div><label >Email:
             <input type="email" th:field="*{email}" name="email" placeholder="email">
             <span class="validationError" style="color:red;"
                   th:if="${#fields.hasErrors('email')}"
@@ -38,3 +38,4 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
+

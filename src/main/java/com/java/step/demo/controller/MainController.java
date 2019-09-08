@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.util.Collections;
 
 @Controller
 @RequestMapping("/")
@@ -31,12 +32,33 @@ public class MainController {
         return "registration";
     }
 
-    @PostMapping("registration")
-    public String addNewUser(@Valid User user, Errors errors){
+//    @PostMapping("registration")
+//    public String addNewUser(@Valid User user, Errors errors){
+//        if(errors.hasFieldErrors()){
+//            return "registration";
+//        }
+//        userRepo.save(user);
+//        return "redirect:/sign_in";
+//    }
+
+    @PostMapping("/registration")
+    public String addUser(@ModelAttribute @Valid User user, Model model, Errors errors) {
+        User userFromDb = userRepo.findByLogin(user.getLogin());
+
         if(errors.hasFieldErrors()){
+            model.addAttribute("")
             return "registration";
         }
+
+        if (userFromDb != null) {
+            model.addAttribute("message", "User exists!");
+            return "registration";
+        }
+
+        user.setActive(true);
+        user.setRoles(Collections.singleton(Role.USER));
         userRepo.save(user);
-        return "redirect:/sign_in";
+
+        return "redirect:/login";
     }
 }
