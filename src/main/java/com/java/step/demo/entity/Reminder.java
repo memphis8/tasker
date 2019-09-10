@@ -17,8 +17,8 @@ public class Reminder {
 
     @NotBlank
     private String name;
-    @Enumerated(EnumType.STRING)
-    private Tag tag;
+
+    private String tag;
     @NotBlank
     private String body;
     private String date;
