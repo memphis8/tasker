@@ -55,7 +55,6 @@ public class AddReminderController {
         reminderFromDb.setTag(reminder.getTag());
         reminderFromDb.setName(reminder.getName());
         reminderRepo.save(reminderFromDb);
-
         return "redirect:/reminder/reminders";
     }
 

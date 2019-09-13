@@ -9,8 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Controller
@@ -23,9 +25,26 @@ public class ReminderController {
     private ReminderRepo reminderRepo;
 
     @GetMapping("reminders")
-    public String getUserReminders(Model model){
-        List<Reminder> userReminder = reminderRepo.findAllByUser_Username(userService.getUser().getUsername());
-        model.addAttribute("reminders",userReminder);
+    public String getUserReminders(@RequestParam(name = "searchName", required = false, defaultValue = "all") String searchName,
+                                   @RequestParam(name = "param", required = false, defaultValue = "0") int param,
+                                   Model model){
+        List<Reminder> searchReminder;
+        if (searchName.equals("all")&&param==0){
+            searchReminder = reminderRepo.findAllByUser_Username(userService.getUser().getUsername());
+            model.addAttribute("reminders", searchReminder);
+        }else if (param==1){
+            searchReminder = reminderRepo.findAllByUser_Username(userService.getUser().getUsername());
+            searchReminder = searchReminder.stream()
+                    .filter(reminder -> reminder.getName().equals(searchName))
+                    .collect(Collectors.toList());
+            model.addAttribute("reminders", searchReminder);
+        }else if (param==2){
+            searchReminder = reminderRepo.findAllByUser_Username(userService.getUser().getUsername());
+            searchReminder = searchReminder.stream()
+                    .filter(reminder -> reminder.getTag().equals(searchName))
+                    .collect(Collectors.toList());
+            model.addAttribute("reminders", searchReminder);
+        }
         return"reminders";
     }
 }
