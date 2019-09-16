@@ -3,6 +3,14 @@
     height: 10%;
 }
 
+.color-blue{
+    background-color: #005cbf;
+}
+
+.color-red{
+    background-color: #ff4a06;
+}
+
 .form-input{
     border-radius: 5px;
     border-color: #6f42c1;
@@ -10,12 +18,14 @@
 }
 
 .form-size{
-    margin: 2% 0% 2%;
+    margin: 1% 0 1%;
+    width: 80%;
 }
 
 .text-area-resize{
     resize: none;
     height: 38px;
+    width: 80%;
 }
 
 .row-mrg{
