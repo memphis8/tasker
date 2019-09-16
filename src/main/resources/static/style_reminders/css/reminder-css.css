@@ -1,0 +1,13 @@
+.btn-primary{
+    margin-top: 10px;
+    background-color: #6f42c1;
+    border-color:#6f42c1 ;
+    color: #ffffff;
+}
+.btn-outline-success{
+    border-color:#6f42c1 ;
+    color: #6f42c1;
+}
+.btn-outline-success:hover{
+    background-color: #6f42c1;
+}

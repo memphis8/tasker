@@ -16,10 +16,14 @@
 
     <!-- Custom styles for this template -->
     <link href="/static/style_reminders/css/jumbotron.css" rel="stylesheet">
+
 </head>
 
 <body>
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" th:fragment="nav_bar">
+<nav class="navbar navbar-expand-md navbar-light fixed-top bg-light" th:fragment="nav_bar">
+
+    <link rel="stylesheet" href="/static/style_reminders/css/reminder-css.css">
+
     <a class="navbar-brand" href="#"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,12 +41,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="/registration">Registration</a>
             </li>
-            <!--<li class="nav-item">
-                <a class="nav-link" href="/reminder/reminders">Reminders</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/reminder/add_reminder">Add reminder</a>
-            </li>-->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="/reminder/add_reminder" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reminder</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">

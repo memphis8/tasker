@@ -1,46 +1,104 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/" lang="ru">
+
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Login</title>
     <meta charset="UTF-8">
-    <title>Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="/static/style_login/images/icons/favicon.ico"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/style_login/vendor/bootstrap/css/bootstrap.min.css">
+    <!--=============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/style_login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--=============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/style_login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--=============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/style_login/vendor/animate/animate.css">
+    <!--=============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/style_login/vendor/css-hamburgers/hamburgers.min.css">
+    <!--=============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/style_login/vendor/animsition/css/animsition.min.css">
+    <!--=============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/style_login/vendor/select2/select2.min.css">
+    <!--=============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/style_login/vendor/daterangepicker/daterangepicker.css">
+    <!--=============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/style_login/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/static/style_login/css/main.css">
+    <!--===============================================================================================-->
 </head>
 <body>
 <div th:insert="nav_bar :: nav_bar"></div>
 
-<div class="container jumbotron">
-    <div>Страница регистрации</div>
-    <div th:if="${message != null}" th:text="${message}" style="color: red"></div>
-    <form method="post" action="registration" th:object="${user}">
-        <div>
-            <label>Login:
-                <input type="text" th:field="*{username}" name="username" placeholder="login">
-                <span class="validationError" style="color: red"
-                      th:if="${#fields.hasErrors('username')}"
-                      th:errors="*{username}">Login Error</span>
-            </label>
-            <br/>
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100 p-t-50 p-b-90">
+            <!-- Start form-->
+            <form class="login100-form validate-form flex-sb flex-w" method="post" action="registration" th:object="${user}">
+
+                <!-- Label login-->
+                <span class="login100-form-title p-b-51">
+						Registration
+					</span>
+
+                <!--Input username-->
+                <div class="wrap-input100 validate-input m-b-16" data-validate = "Username is required">
+                    <input class="input100" type="text" th:field="*{username}" name="username" placeholder="login">
+                    <span class="validationError"
+                          th:if="${#fields.hasErrors('username')}"
+                          th:errors="*{username}">Login Error</span>
+                </div>
+
+                <!-- Input password -->
+                <div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
+                    <input class="input100" type="password" th:field="*{password}" name="password" placeholder="password">
+                    <span class="validationError"
+                          th:if="${#fields.hasErrors('password')}"
+                          th:errors="*{password}">Password Error</span>
+                </div>
+
+                <!-- Input email -->
+                <div class="wrap-input100 validate-input m-b-16" data-validate = "Email is required">
+                    <input class="input100" type="email" th:field="*{email}" name="email" placeholder="email">
+                    <span class="validationError"
+                          th:if="${#fields.hasErrors('email')}"
+                          th:errors="*{email}">Email error</span>
+                </div>
+
+                <!-- Spring security token -->
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+                <!-- Button-->
+                <div class="container-login100-form-btn m-t-17">
+                    <input type="submit" class="login100-form-btn" value="Registration"/>
+                </div>
+
+            </form>
+            <!-- End form-->
         </div>
-        <div><label >Password:
-            <input type="text" th:field="*{password}" name="password" placeholder="password">
-            <span class="validationError" style="color: red"
-                  th:if="${#fields.hasErrors('password')}"
-                  th:errors="*{password}">Password Error</span>
-        </label></div>
-        <div><label >Email:
-            <input type="email" th:field="*{email}" name="email" placeholder="email">
-            <span class="validationError" style="color:red;"
-                  th:if="${#fields.hasErrors('email')}"
-                  th:errors="*{email}">Email error</span>
-        </label></div>
-        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-        <div><div><input type="submit" class="btn btn-outline-primary" value="Registration"/></div></div>
-    </form>
+    </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+<script src="/static/style_login/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--=============================================================================================-->
+<script src="/static/style_login/vendor/animsition/js/animsition.min.js"></script>
+<!--=============================================================================================-->
+<script src="/static/style_login/vendor/bootstrap/js/popper.js"></script>
+<script src="/static/style_login/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--=============================================================================================-->
+<script src="/static/style_login/vendor/select2/select2.min.js"></script>
+<!--=============================================================================================-->
+<script src="/static/style_login/vendor/daterangepicker/moment.min.js"></script>
+<script src="/static/style_login/vendor/daterangepicker/daterangepicker.js"></script>
+<!--=============================================================================================-->
+<script src="/static/style_login/vendor/countdowntime/countdowntime.js"></script>
+<!--=============================================================================================-->
+<script src="/static/style_login/js/main.js"></script>
+
 </body>
 </html>
-
