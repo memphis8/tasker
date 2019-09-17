@@ -5,8 +5,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -19,8 +17,8 @@ public class Reminder {
 
     @NotBlank
     private String name;
-    @Enumerated(EnumType.STRING)
-    private Tag tag;
+
+    private String tag;
     @NotBlank
     private String body;
     private String date;

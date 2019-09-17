@@ -2,19 +2,24 @@ package com.java.step.demo.controller;
 
 import com.java.step.demo.entity.Reminder;
 import com.java.step.demo.repo.ReminderRepo;
+import com.java.step.demo.servise.UserService;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Date;
+import java.util.Optional;
+
 
 @Controller
+@AllArgsConstructor
 @RequestMapping("reminder")
 public class AddReminderController {
+    UserService userService;
     ReminderRepo reminderRepo;
 
     @GetMapping("add_reminder")
@@ -28,8 +33,37 @@ public class AddReminderController {
         if(errors.hasErrors()){
             return "add_reminders";
         }
-        reminderRepo.save(reminder);
+        fillingOutDateAndUserInReminder(reminder);
         return "redirect:/reminder/reminders";
+    }
+
+    @GetMapping("change")
+    public String getPageAddReminder(@RequestParam Long id, Model model){
+        Reminder reminder = reminderRepo.findById(id).get();
+        model.addAttribute("reminder",reminder);
+        return "change_reminder";
+    }
+
+    @PostMapping("change")
+    public String saveChangeReminder(@RequestParam Long id, @Valid Reminder reminder, Errors errors){
+        if(errors.hasErrors()){
+            return "change_reminder";
+        }
+        Reminder reminderFromDb = reminderRepo.findById(id).get();
+        reminderFromDb.setDate(new Date().toString());
+        reminderFromDb.setBody(reminder.getBody());
+        reminderFromDb.setTag(reminder.getTag());
+        reminderFromDb.setName(reminder.getName());
+        reminderRepo.save(reminderFromDb);
+        return "redirect:/reminder/reminders";
+    }
+
+
+
+    private void fillingOutDateAndUserInReminder(@Valid Reminder reminder) {
+        reminder.setDate(new Date().toString());
+        reminder.setUser(userService.getUser());
+        reminderRepo.save(reminder);
     }
 
 }
